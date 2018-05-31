@@ -13,7 +13,9 @@ import javax.swing.JOptionPane;
  * @author Jose
  */
 public class Calculadora extends javax.swing.JPanel {
-      
+      /**
+       * Variable que me hace la conexion con el frame principal
+       */
     private Principal p;
     /**
      * Creates new form Calculadora
