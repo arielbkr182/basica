@@ -18,6 +18,7 @@ public class Calculadora extends javax.swing.JPanel {
        */
     private Principal p;
     /**
+     * @author sebastian barriga
      * Creates new form Calculadora
      */
             int contador=0;
