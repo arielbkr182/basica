@@ -13,24 +13,38 @@ import javax.swing.JOptionPane;
  * @author Jose
  */
 public class Calculadora extends javax.swing.JPanel {
-      /**
-       * Variable que me hace la conexion con el frame principal
-       */
+
+    /**
+     * Variable que me hace la conexion con el frame principal
+     */
     private Principal p;
     /**
-     * @author sebastian barriga
-     * Creates new form Calculadora
+     * @author sebastian barriga Creates new form Calculadora
      */
-            int contador=0;
-            String numero1;
-            String numero2;
+
+    private String numero1;
+    private String numero2;
+    private boolean operacionNueva;
+    private String ecuacion;
+    private String operador;
+
+    public boolean isOperacionNueva() {
+        return operacionNueva;
+    }
+
+    public void setOperacionNueva(boolean operacionNueva) {
+        this.operacionNueva = operacionNueva;
+    }
 
     public Calculadora(Principal p) {
-        this.p=p;
+        this.p = p;
         initComponents();
-        
+        operacionNueva = true;
+        numero1 = "";
+        numero2 = "";
+        operador = "";
     }
-        
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -383,34 +397,73 @@ public class Calculadora extends javax.swing.JPanel {
         }// </editor-fold>//GEN-END:initComponents
     /**
      * Void jButton encargado el boton 9
-     */    
+     */
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        numero1 += "9";
-        jTextField1.setText(numero1);
-        System.out.println("9");
+        if (operacionNueva) {
+            numero1 += "9";
+            crearEcuacion(0);
+
+        } else {
+            numero2 += "9";
+            crearEcuacion(1);
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
     /**
      * Void jButton encargado el boton 8
-     */ 
+     */
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        numero1 += "8";
-        jTextField1.setText(numero1);
-        System.out.println("8");
+        if (operacionNueva) {
+            numero1 += "8";
+            crearEcuacion(0);
+
+        } else {
+            numero2 += "8";
+            crearEcuacion(1);
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
     /**
      * Void jButton encargado el boton 7
-     */ 
+     */
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        numero1 += "7";
-        jTextField1.setText(numero1);
-        System.out.println("7");
+        if (operacionNueva) {
+            numero1 += "7";
+            crearEcuacion(0);
+
+        } else {
+            numero2 += "7";
+            crearEcuacion(1);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
     /**
      * Void jButton encargado el boton Punto (.)
-     */ 
+     */
     private void jButtonPuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPuntoActionPerformed
-        // TODO add your handling code here:
-        System.out.println("Punto (.)");
+        if (operacionNueva) {
+            if (numero1.equals("")) {
+                numero1 = "0.";
+            } else {
+                if (numero1.indexOf(".") == -1) {
+                    numero1 += ".";
+                } else {
+                    numero1 = numero1;
+                }
+
+            }
+
+            crearEcuacion(0);
+
+        } else {
+            if (numero2.equals("")) {
+                numero2 = "0.";
+            } else {
+                if (numero2.indexOf(".") == -1) {
+                    numero2 += ".";
+                } else {
+                    numero2 = numero2;
+                }
+            }
+            crearEcuacion(1);
+        }
     }//GEN-LAST:event_jButtonPuntoActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -418,55 +471,87 @@ public class Calculadora extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField1ActionPerformed
     /**
      * Void jButton encargado el boton 1
-     */ 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        numero1 += "1";
-        jTextField1.setText(numero1);
-        System.out.println("1");
+
+        if (operacionNueva) {
+            numero1 += "1";
+            crearEcuacion(0);
+
+        } else {
+            numero2 += "1";
+            crearEcuacion(1);
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
     /**
      * Void jButton encargado el boton 2
-     */ 
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        numero1 += "2";
-        jTextField1.setText(numero1);
-        System.out.println("2");
+        if (operacionNueva) {
+            numero1 += "2";
+            crearEcuacion(0);
+
+        } else {
+            numero2 += "2";
+            crearEcuacion(1);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
     /**
      * Void jButton encargado el boton 3
-     */ 
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        numero1 += "3";
-        jTextField1.setText(numero1);
-        System.out.println("3");
+        if (operacionNueva) {
+            numero1 += "3";
+            crearEcuacion(0);
+
+        } else {
+            numero2 += "3";
+            crearEcuacion(1);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
     /**
      * Void jButton encargado el boton 4
-     */ 
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       numero1 += "4";
-        jTextField1.setText(numero1);
-        System.out.println("4");
+        if (operacionNueva) {
+            numero1 += "4";
+            crearEcuacion(0);
+
+        } else {
+            numero2 += "4";
+            crearEcuacion(1);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
     /**
      * Void jButton encargado el boton 5
-     */ 
+     */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        numero1 += "5";
-        jTextField1.setText(numero1);
-        System.out.println("5");
+        if (operacionNueva) {
+            numero1 += "5";
+            crearEcuacion(0);
+
+        } else {
+            numero2 += "5";
+            crearEcuacion(1);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
     /**
      * Void jButton encargado el boton 6
-     */ 
+     */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        numero1 += "6";
-        jTextField1.setText(numero1);
-        System.out.println("6");
+        if (operacionNueva) {
+            numero1 += "6";
+            crearEcuacion(0);
+
+        } else {
+            numero2 += "6";
+            crearEcuacion(1);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
     /**
      * Void jButton encargado el boton salir
-     */ 
+     */
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
         System.out.println("Hasta Luego");
@@ -475,7 +560,7 @@ public class Calculadora extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonSalirActionPerformed
     /**
      * Void jButton encargado el boton Cerrar sesión
-     */ 
+     */
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
         // TODO add your handling code here:
         System.out.println("Cerrando sesión");
@@ -483,136 +568,153 @@ public class Calculadora extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonLogoutActionPerformed
     /**
      * Void jButton encargado el boton Limpiar tablero
-     */ 
+     */
     private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
         numero1 = "";
         numero2 = "";
+        operador = "";
         jTextField1.setText("");
-        contador = 0;
-        System.out.println("Limpiando");
+        operacionNueva = true;
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
     /**
      * Void jButton encargado el boton Borrar
-     */ 
+     */
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         // TODO add your handling code here:
         System.out.println("Borrando");
     }//GEN-LAST:event_jButtonBorrarActionPerformed
     /**
      * Void jButton encargado el boton Potencia
-     */ 
+     */
     private void jButtonPotenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPotenciaActionPerformed
         // TODO add your handling code here:
         System.out.println("Potenciacion");
     }//GEN-LAST:event_jButtonPotenciaActionPerformed
     /**
      * Void jButton encargado el boton Division real
-     */ 
+     */
     private void jButtonRealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRealActionPerformed
-        if(jTextField1.getText().equals("")|| contador != 0){
-            operaciones();
-            jTextField1.setText("/");
-        }
-        System.out.println("Division real");
+
     }//GEN-LAST:event_jButtonRealActionPerformed
     /**
      * Void jButton encargado el boton Multiplicacion
-     */ 
+     */
     private void jButtonMultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMultiplicacionActionPerformed
-        if(jTextField1.getText().equals("")|| contador != 0){
-            operaciones();
-            jTextField1.setText("x");
+        if (numero1.equals("")) {
+            operador = "";
+        } else {
+            operador = "*";
+            if (hayOperador()) {                
+                calcular();
+            } else {
+                crearEcuacion(2);
+            }
         }
-        System.out.println("Multiplicacion");
     }//GEN-LAST:event_jButtonMultiplicacionActionPerformed
     /**
      * Void jButton encargado el boton Suma
-     */ 
+     */
     private void jButtonSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSumaActionPerformed
-        if(jTextField1.getText().equals("")|| contador != 0){
-            operaciones();
-            jTextField1.setText("+");
+        if (numero1.equals("")) {
+            operador = "";
+        } else {
+            operador = "+";
+            if (hayOperador()) {                
+                calcular();
+            } else {
+                crearEcuacion(2);
+            }
         }
-        System.out.println("Suma");
     }//GEN-LAST:event_jButtonSumaActionPerformed
     /**
      * Void jButton encargado el boton Resta
-     */ 
+     */
     private void jButtonRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRestaActionPerformed
-       if(jTextField1.getText().equals("")|| contador != 0){
-            operaciones();
-            jTextField1.setText("-");
+        if (numero1.equals("")) {
+            operador = "";
+            numero1 = "-";
+        } else {
+            operador = "-";
+            if (hayOperador()) {  
+                
+                //calcular();
+            } else {
+                crearEcuacion(2);
+            }
         }
-        System.out.println("Resta");
     }//GEN-LAST:event_jButtonRestaActionPerformed
     /**
      * Void jButton encargado el boton Division
-     */ 
+     */
     private void jButtonDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDivisionActionPerformed
-        
+
         System.out.println("Division");
     }//GEN-LAST:event_jButtonDivisionActionPerformed
     /**
      * Void jButton encargado el boton Division Modular
-     */ 
+     */
     private void jButtonModularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModularActionPerformed
         // TODO add your handling code here:
         System.out.println("Division modular");
     }//GEN-LAST:event_jButtonModularActionPerformed
     /**
      * Void jButton encargado el boton Raiz n
-     */ 
+     */
     private void jButtonRaizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRaizActionPerformed
         // TODO add your handling code here:
         System.out.println("Raiz n");
     }//GEN-LAST:event_jButtonRaizActionPerformed
     /**
      * Void jButton encargado el boton 0
-     */ 
+     */
     private void jButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton0ActionPerformed
-        numero1 += "0";
-        jTextField1.setText(numero1);
-        System.out.println("0");
+        if (operacionNueva) {
+            numero1 += "0";
+            crearEcuacion(0);
+
+        } else {
+            numero2 += "0";
+            crearEcuacion(1);
+        }
     }//GEN-LAST:event_jButton0ActionPerformed
     /**
      * Void jButton encargado el boton Igual (=)
-     */ 
+     */
     private void jButtonIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIgualActionPerformed
         // TODO add your handling code here:
         System.out.println("Igual (=)");
     }//GEN-LAST:event_jButtonIgualActionPerformed
 
-    void operaciones(){
-        double n1,n2;
-        if(jTextField1.getText().equals("")){
-            if(contador==0){
-                numero2=numero1;
+    void operaciones() {
+        /*double n1, n2;
+        if (jTextField1.getText().equals("")) {
+            if (contador == 0) {
+                numero2 = numero1;
                 jTextField1.setText(numero2);
             }
-            if(numero2.equals("")){
-                numero2="0";
+            if (numero2.equals("")) {
+                numero2 = "0";
             }
-            n1= Double.valueOf(numero2);
-            n2= Double.valueOf(numero1);
-            if(jTextField1.getText().equals("-")){
-            numero2 = String.valueOf(n1-n2);
-        }
-         if(jTextField1.getText().equals("+")){
-            numero2 = String.valueOf(n1+n2);
-        }
-         if(jTextField1.getText().equals("x")){
-            numero2 = String.valueOf(n1*n2);
-        }
-         if(jTextField1.getText().equals("/")){
-            numero2 = String.valueOf(n1/n2);
-        }
-         jTextField1.setText("");
-         numero1 = "";
-         contador++;
-         jTextField1.setText(numero2);
-        }
-        
-         
+            n1 = Double.valueOf(numero2);
+            n2 = Double.valueOf(numero1);
+            if (jTextField1.getText().equals("-")) {
+                numero2 = String.valueOf(n1 - n2);
+            }
+            if (jTextField1.getText().equals("+")) {
+                numero2 = String.valueOf(n1 + n2);
+            }
+            if (jTextField1.getText().equals("x")) {
+                numero2 = String.valueOf(n1 * n2);
+            }
+            if (jTextField1.getText().equals("/")) {
+                numero2 = String.valueOf(n1 / n2);
+            }
+            jTextField1.setText("");
+            numero1 = "";
+            contador++;
+            jTextField1.setText(numero2);
+        }*/
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -645,4 +747,92 @@ public class Calculadora extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private void crearEcuacion(int tipo) {
+        switch (tipo) {
+            case 0:
+                ecuacion = numero1;
+                break;
+            case 1:
+                ecuacion += " " + numero2 + " ";
+                break;
+            case 2:
+                ecuacion += " " + operador;
+                operacionNueva = false;
+                break;
+        }
+        jTextField1.setText(ecuacion);
+        System.out.println(ecuacion);
+    }
+
+    private boolean hayOperador() {
+        if (operador.equals("-")) {
+            if (ecuacion.indexOf("+") != -1) {
+                numero2="-";
+                return true;
+            } else if (ecuacion.indexOf("-") != -1) {
+                if (ecuacion.indexOf("-") == 0) {
+                    return false;
+                } else {
+                    numero2="-";
+                    return true;
+                }
+
+            } else if (ecuacion.indexOf("*") != -1) {
+                numero2="-";
+                return true;
+            } else if (ecuacion.indexOf("d") != -1) {
+                numero2="-";
+                return true;
+            } else if (ecuacion.indexOf("e") != -1) {
+                numero2="-";
+                return true;
+            } else if (ecuacion.indexOf("m") != -1) {
+                numero2="-";
+                return true;
+            } else if (ecuacion.indexOf("p") != -1) {
+                numero2="-";
+                return true;
+            } else if (ecuacion.indexOf("r") != -1) {
+                numero2="-";
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            if (ecuacion.indexOf("+") != -1) {
+                return true;
+            } else if (ecuacion.indexOf("-") != -1) {
+                if (ecuacion.indexOf("-") == 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+
+            } else if (ecuacion.indexOf("*") != -1) {
+                return true;
+            } else if (ecuacion.indexOf("d") != -1) {
+                return true;
+            } else if (ecuacion.indexOf("e") != -1) {
+                return true;
+            } else if (ecuacion.indexOf("m") != -1) {
+                return true;
+            } else if (ecuacion.indexOf("p") != -1) {
+                return true;
+            } else if (ecuacion.indexOf("r") != -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+    }
+
+    private void calcular() {
+        operacionNueva = false;
+        numero1 = p.calcular(ecuacion);
+        crearEcuacion(0);
+
+        System.out.println("calculando...");
+    }
 }
