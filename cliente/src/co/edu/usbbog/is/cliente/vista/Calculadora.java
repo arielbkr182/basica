@@ -836,3 +836,4 @@ public class Calculadora extends javax.swing.JPanel {
         System.out.println("calculando...");
     }
 }
+//joder
