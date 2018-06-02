@@ -149,7 +149,7 @@ public class Login extends javax.swing.JPanel {
      * @param evt muestra el evento que se esta realizando conforme a una accion 
      */
     private void jPasswordFieldContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseniaActionPerformed
-        
+        ingresar();
     }//GEN-LAST:event_jPasswordFieldContraseniaActionPerformed
 
 

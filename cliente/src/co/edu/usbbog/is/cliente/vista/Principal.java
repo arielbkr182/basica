@@ -19,7 +19,7 @@ public class Principal extends JFrame {
     private Login login;
     private Calculadora calculadora;
     private Registro registro;
-    private Operar operar;
+    //private Operar operar;
     
 
     //componentes
@@ -37,7 +37,7 @@ public class Principal extends JFrame {
      * Metodo Constructor
      */
     public Principal() {
-        operar = new Operar();
+        //operar = new Operar();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("Calculadora");
         this.setResizable(false);
@@ -138,7 +138,7 @@ public class Principal extends JFrame {
      * Metodo para ir al inicio de sesion
      */
     protected void irAInicioDeSesion() {
-        operar.cerrarSesion();
+        //operar.cerrarSesion();
         iniciarVentana();
         login = new Login(this);
         ventana = new Ventana(this, login, "Ventana", false, false, DO_NOTHING_ON_CLOSE);
@@ -151,7 +151,7 @@ public class Principal extends JFrame {
      * @return un verdadero o falso segun la condicion
      */
     protected  boolean validar(String usuario, String pass) {
-        return operar.iniciarSesion(usuario, pass);
+        return true;//operar.iniciarSesion(usuario, pass);
     }/**
      * Metodo para validad el resgistro y agregar el nuevo usuario
      * @param nombre nombre del usuario
@@ -162,7 +162,7 @@ public class Principal extends JFrame {
      */
     protected boolean validarRegistro(String nombre, String usuario, String pass, String confirPass){
        
-        if(operar.Registrar(nombre, usuario, pass, confirPass)){
+        if(true/*operar.Registrar(nombre, usuario, pass, confirPass)*/){
         
         return true;
         }else{
@@ -171,4 +171,9 @@ public class Principal extends JFrame {
         
     }
 
+    String calcular(String ecuacion) {
+        return "";
+    }
+
+ 
 }
